@@ -3,16 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.bizviz.survey.ST1">
+      <class name="com.bizviz.survey.ST2">
         <methods>
+          <include name="DeleteSurvey"/>
           <include name="configBC"/>
-          <include name="configAM"/>
-          <include name="configBm"/>
           <include name="configAC"/>
-          <include name="PublishSurvey"/>
           <include name="createSurveyTest"/>
         </methods>
-      </class> <!-- com.bizviz.survey.ST1 -->
+      </class> <!-- com.bizviz.survey.ST2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

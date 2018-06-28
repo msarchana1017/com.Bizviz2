@@ -45,9 +45,6 @@ public class Survey {
 	 
 	 @FindBy(id="startDate") private WebElement startDate;
 	 
-	 
-	
-
 	 @FindBy(id="endDate") private WebElement endDate;
 
 	 @FindBy(xpath="//button[text()='Create']") private WebElement CreatePublishBtn;
@@ -80,7 +77,22 @@ public class Survey {
 	 
 	 @FindBy(xpath="//button[@type='submit']") private WebElement mcsubmitBTN;
 	
-
+     @FindBy(xpath=".//*[@id='drop4']") private WebElement dropdwnBTN; 
+     
+     @FindBy(xpath="//a[text()='Preview Survey']")  private WebElement previewBTN;
+     
+     @FindBy(xpath="//a[text()='Delete Survey']")   private WebElement deleteBTN;
+     
+     @FindBy(xpath="//a[text()='Copy Survey']")   private WebElement copyBTN;
+     
+     @FindBy(xpath="//a[text()='Survey Summary']")  private WebElement summaryBTN;
+     
+     @FindBy(xpath=".//*[@id='desktopPreview']")  private WebElement desktoppreBTN;
+     
+     @FindBy(xpath=".//*[@id='tabletPreview']")  private WebElement tabletpreBTN;
+     
+     @FindBy(xpath=".//*[@id='mobilePreview']")  private WebElement mobilepreBTN;
+     
 	 
 //====================================================================
 		
@@ -192,6 +204,29 @@ public class Survey {
 			return mcsubmitBTN;
 		}
 
-	
-	 
+		public WebElement getDropdwnBTN()  {
+			return dropdwnBTN;
+			
+		}
+		public WebElement getPreviewBTN() {
+			return previewBTN;
+		}
+		public WebElement getDeleteBTN() {
+			return deleteBTN;
+		}
+	    public WebElement getCopyBTN() {
+	    	return copyBTN;
+	    }
+	    public WebElement getSummaryBTN() {
+	    	return summaryBTN;
+	    }
+	    public WebElement getDesktoppreBTN() {
+	    	return desktoppreBTN;
+	    }
+	    public WebElement getMobilepreBTN() {
+	    	return mobilepreBTN;
+	    }
+	    public WebElement getTabletpreBTN()  {
+	    	return tabletpreBTN;
+	    }
 }

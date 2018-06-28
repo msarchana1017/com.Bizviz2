@@ -1,8 +1,12 @@
 package com.bizviz.objectrepositorylib;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.bizviz.genericlib.BaseClass;
 import com.bizviz.genericlib.WebdrivercommonUtils;
 
 public class Common extends WebdrivercommonUtils{
@@ -22,4 +26,18 @@ public class Common extends WebdrivercommonUtils{
         Thread.sleep(5000);
         logoutLnk.click();
 	}
+	
+public static void windowHandle() throws Throwable {
+		
+	 //Window handle 
+   	Set<String> set= BaseClass.driver.getWindowHandles();
+	System.out.println(set.size());
+	Iterator<String> it=set.iterator();
+	String Pid=it.next();
+	String surveycid=it.next();
+   	//pass parent control to child window control
+	BaseClass.driver.switchTo().window(surveycid);
+	}
+	
+	
 }

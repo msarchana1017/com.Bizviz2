@@ -22,7 +22,8 @@ public class SurveyTest extends BaseClass{
 	FileDataUtiles file = new FileDataUtiles();
     WebdrivercommonUtils wLib = new WebdrivercommonUtils();
 	Survey sp= PageFactory.initElements(driver,Survey.class);
-    @Test
+   
+	@Test
 	public void createSurveyTest() throws Throwable
     {
     	Home hp= PageFactory.initElements(driver,Home.class);

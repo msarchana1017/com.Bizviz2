@@ -26,13 +26,16 @@ public class ST2 extends BaseClass{
     	hp.navigateToSurveyPage();
     	
         //Window handle 
-       	Set<String> set=driver.getWindowHandles();
+       	/*Set<String> set=driver.getWindowHandles();
     	System.out.println(set.size());
     	Iterator<String> it=set.iterator();
     	String Pid=it.next();
     	String surveycid=it.next();
        	//pass parent control to child window control
-    	driver.switchTo().window(surveycid);
+    	driver.switchTo().window(surveycid);*/
+    	
+    	Thread.sleep(3000);
+    	com.bizviz.objectrepositorylib.Common.windowHandle();
     	String Actualtitle="BizViz Survey";	
     	String ExpectedTitle=driver.getTitle();
      	Assert.assertEquals(Actualtitle, ExpectedTitle);
@@ -63,7 +66,7 @@ public class ST2 extends BaseClass{
         Reporter.log("Successfully created survey",true); 
      }
     
-    @Test(priority=2) 
+    @Test(priority=2,enabled=false) 
 	public void PublishSurvey() throws Throwable
 	{
     	Thread.sleep(5000);
@@ -136,9 +139,74 @@ public class ST2 extends BaseClass{
 		   sp1.getMcsubmitBTN().click();
 		   Reporter.log("successfully sent mails and published survey ",true);
 		   driver.navigate().refresh();
-		  
-		   
+		  	   
 	}
+    
+    @Test(priority=3,enabled=false)
+    public void PreviewSurvey() throws Throwable
+    {
+       		Thread.sleep(5000);
+        	Home hp2= PageFactory.initElements(driver,Home.class);
+        	Survey sp1= PageFactory.initElements(driver,Survey.class);
+        	Thread.sleep(5000);
+        	/* search survey*/
+        	sp1.getSearchBox().sendKeys("Survey");
+        	   /*selecting preview survey*/
+    	    sp1.getDropdwnBTN().click();
+    	    Thread.sleep(3000);
+    	    sp1.getPreviewBTN().click();
+    	    Thread.sleep(3000);
+    	    
+        
+            //Window handle 
+           	Set<String> set=driver.getWindowHandles();
+        	System.out.println(set.size());
+        	Iterator<String> it=set.iterator();
+        	String Pid=it.next();
+        	String surveycid=it.next();
+        	String previewsid=it.next();
+        	//pass parent control to child window control
+          	driver.switchTo().window(previewsid);
+              	
+    	    Thread.sleep(3000);
+      	    /*in preview page*/
+    	    sp1.getDesktoppreBTN().click();
+    	    Thread.sleep(3000);
+    	    sp1.getMobilepreBTN().click();
+    	    Thread.sleep(3000);
+    	    sp1.getTabletpreBTN().click();
+    	    Thread.sleep(3000);
+    	    
+    }
+    
+    @Test()
+    public void DeleteSurvey() throws Throwable
+    {
+    	Home hp2= PageFactory.initElements(driver,Home.class);
+    	Survey sp= PageFactory.initElements(driver,Survey.class);
+    	
+    	sp.getDropdwnBTN();
+    	sp.getDeleteBTN().click();
+    	sp.getCreatesurveyLnk().click();
+    	sp.getSurveytitleTB().sendKeys("CreateSurveyDelete");
+    	sp.getSurveydescriptionTB().sendKeys("hi");
+    	sp.getSaveBTN().click();
+    	
+    	Thread.sleep(5000);
+        //add 5q and save
+    	sp.getQ1().click();      	sp.getQuestionTab().click();
+    	sp.getQ2().click();      	sp.getQuestionTab().click();
+    	sp.getQ3().click();        	sp.getQuestionTab().click();
+    	sp.getQ4().click();     	sp.getQuestionTab().click();
+    	sp.getQ5().click();
+       	Thread.sleep(8000);
+        sp.getQsaveBTN().click();
+        driver.navigate().refresh();
+        sp.getSearchBox().sendKeys("CreateSurveyDelete");
+        sp.getDeleteBTN().click();
+        driver.switchTo().alert().accept();
+        
+    }
 	
 	
 }
