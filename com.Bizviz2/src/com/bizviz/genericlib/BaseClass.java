@@ -36,13 +36,7 @@ public class BaseClass {
 			System.setProperty("webdriver.ie.driver", "./resource/IEDriverserver.exe");
 			driver = new InternetExplorerDriver();
 		}
-
-	}	
-
-	@BeforeMethod
-	public void configBm() throws Throwable {
 		//to access data from property file
-		Properties pObj = file.getPropertiesFileObj();
 		 String username =pObj.getProperty("username");
 	     String password = pObj.getProperty("password");
 	     String url =pObj.getProperty("url");
@@ -55,20 +49,17 @@ public class BaseClass {
         Login lp = PageFactory.initElements(driver, Login.class);
        
         lp.login(username, password);
-        
-	}
+
+	}	
+
 	
-	@AfterMethod
-	public void configAM () throws Throwable 
-	{
+	@AfterClass
+	public void configAC() throws Throwable {
+		
 		System.out.println("logout");
 		Common cPage = PageFactory.initElements(driver, Common.class);
 		cPage.logout();
 		System.out.println("logout sucessfully");
-	}
-	
-	@AfterClass
-	public void configAC() {
 		System.out.println("=====close browser========");
 		driver.close();
 	}
