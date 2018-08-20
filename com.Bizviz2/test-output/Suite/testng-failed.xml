@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.bizviz.sentiment.SentimetTest">
+        <methods>
+          <include name="configBC"/>
+          <include name="CreateSentimentUsingExcel"/>
+          <include name="configAC"/>
+        </methods>
+      </class> <!-- com.bizviz.sentiment.SentimetTest -->
+      <class name="com.bizviz.survey.ST2">
+        <methods>
+          <include name="DeleteSurvey"/>
+          <include name="configBC"/>
+          <include name="configAC"/>
+          <include name="createSurveyTest"/>
+        </methods>
+      </class> <!-- com.bizviz.survey.ST2 -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -35,6 +35,7 @@ public class ST2 extends BaseClass{
     	driver.switchTo().window(surveycid);*/
     	
     	Thread.sleep(3000);
+    	//window handling
     	com.bizviz.objectrepositorylib.Common.windowHandle();
     	String Actualtitle="BizViz Survey";	
     	String ExpectedTitle=driver.getTitle();

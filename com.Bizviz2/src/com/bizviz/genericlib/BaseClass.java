@@ -16,9 +16,12 @@ import com.bizviz.objectrepositorylib.Login;
 
 public class BaseClass {
 	
-	public static WebDriver driver; //global driver Object declaration 
+	//global driver Object declaration 
+	public static WebDriver driver;
+	
 	//To Access Data from FileDataUtiles
 	FileDataUtiles file = new FileDataUtiles();
+	
 	//to access logout 
 	WebdrivercommonUtils wLib = new WebdrivercommonUtils();
 	

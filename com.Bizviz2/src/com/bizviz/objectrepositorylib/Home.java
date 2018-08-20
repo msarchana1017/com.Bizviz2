@@ -34,7 +34,7 @@ public class Home {
      {
        	 WebdrivercommonUtils wlib = new WebdrivercommonUtils();
  		 wlib.waitForElemnet(appIcon);
- 		 Thread.sleep(5000);
+ 		 Thread.sleep(10000);
  		 appIcon.click();
  		 surveyIcon.click();
      }

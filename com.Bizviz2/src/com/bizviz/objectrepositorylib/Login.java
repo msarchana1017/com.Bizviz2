@@ -9,13 +9,13 @@ public class Login {
 	
 	WebdrivercommonUtils wLib = new WebdrivercommonUtils();
 	//Web elements locator   
-		@FindBy(id="userid")
+		@FindBy(id="login_email")
 	     private WebElement userEdt; 
 		
-		@FindBy(name="password")
+		@FindBy(id="login_password")
 	    private WebElement passwordEdt; 
 
-		@FindBy(xpath="//button[text()='Login']")
+		@FindBy(xpath="//span[text()='Continue']")
 	    private WebElement loginBtn; 
 		
 		
